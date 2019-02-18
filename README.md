@@ -1,8 +1,8 @@
-# client for MESI project 
+# client for MESI project
 
 ## Rewrited With React & Redux
-Mesi project is sort of project management tool (kind of my implementation of kanban board)  
-[Here](https://github.com/shootermv/mesi) is link to old version of mesi project 
+Mesi project is sort of project management tool (kind of my implementation of kanban board)
+[Here](https://github.com/shootermv/mesi) is link to old version of mesi project
 
 ## link to server project
 [link](https://github.com/shootermv/node-mongo-registration-login-api) to Server part of the project
@@ -10,6 +10,7 @@ Mesi project is sort of project management tool (kind of my implementation of ka
 ## Based On
 React + Redux - User Registration and Login Tutorial & Example
 
+[demo](http://mesi-tasks.herokuapp.com/)
 
 ## Authentication
 Mesi contains user authentication implementation with "Admin" and "User" roles.
@@ -21,14 +22,14 @@ Programmers can notify their progress by changing the status of the task (by cli
 * `new`
 * `active` - the task programmer is currently working on (will appear blue at Admin's dashboard)
 * `completed`
- 
+
 ## Stack
 
 * Persistence store: [MongoDB](http://www.mongodb.org/)
 * Backend: [Node.js](http://nodejs.org/)
 * Awesome [AngularJS](http://www.angularjs.org/) on the client
 * Responsive CSS based on [Twitter's bootstrap](http://twitter.github.com/bootstrap/)
-* Real Time syncronization based on [socket.io](https://socket.io/) 
+* Real Time syncronization based on [socket.io](https://socket.io/)
 
 
 ### Setup Develop Environment
