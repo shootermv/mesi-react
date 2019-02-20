@@ -1,10 +1,11 @@
-# client for MESI project
+# Client for MESI project
 
 ## Rewrited With React & Redux
 Mesi project is sort of project management tool (kind of my implementation of kanban board)
 [Here](https://github.com/shootermv/mesi) is link to old version of mesi project
 
-## link to server project
+## Server
+Server is bult with Nodejs Express framework + MongoDB
 [link](https://github.com/shootermv/node-mongo-registration-login-api) to Server part of the project
 
 ## Based On
