@@ -31,7 +31,7 @@ class PrivatePage extends React.Component {
     }
 
     render() {
-        const { user, users } = this.props;
+        const { user } = this.props;
         return (
             <div className="col-md-6 col-md-offset-3">
                 <h1>Hi {user.firstName}!</h1>
@@ -41,7 +41,7 @@ class PrivatePage extends React.Component {
                     <ul>
                         {user.tasks.map((task, index) =>
                             <li key={task._id}>
-                                {task.summary} <a onClick={this.changeStatus(user, task)}>{task.status === 0 ? 'new' : task.status === 1 ? 'in process' : 'done'}</a>                      
+                                {task.summary} <a href onClick={this.changeStatus(user, task)}>{task.status === 0 ? 'new' : task.status === 1 ? 'in process' : 'done'}</a>                      
                             </li>
                         )}
                     </ul> : 'No tasks yet'

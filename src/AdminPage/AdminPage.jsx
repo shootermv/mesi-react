@@ -63,7 +63,7 @@ class AdminPage extends React.Component {
         return (<div>
                 <h1>Hi {admin.firstName}!</h1>
                 <form>
-                    <input name="summary" name="summary" value={this.state.summary} placeholder="what is the task"
+                    <input name="summary" value={this.state.summary} placeholder="what is the task"
          onChange={this.handleInputChange}/>
                     <button onClick={e => this.save(e)}>Save</button>
                 </form>
@@ -76,7 +76,7 @@ class AdminPage extends React.Component {
                         {tasks.items.map((task, index) =>
                             <li key={task.id} draggable="true" onDragStart={ev => this.dragStartHandler(task, ev)}>
                                 <span className="glyphicon glyphicon-th-list"></span> {task.summary} 
-                                <a onClick={e => this.deleteTask(task, e)}><span className="glyphicon glyphicon-remove"></span></a>
+                                <a href onClick={e => this.deleteTask(task, e)}><span className="glyphicon glyphicon-remove"></span></a>
                             </li>
                         )}
                     </ul>: !tasks.loading && tasks.items && tasks.items.length===0 && 'No tasks yet'
