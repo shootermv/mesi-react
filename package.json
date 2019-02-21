@@ -2,6 +2,7 @@
   "name": "mesi-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://shootermv.github.io/mesi-react",
   "dependencies": {
     "bootstrap": "^3.3.7",
     "history": "^4.7.2",
@@ -29,5 +30,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.9.1"
+  }
 }
