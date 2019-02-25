@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { userActions, taskActions } from '../_actions';
+import { userActions, taskActions, allActions as all } from '../_actions';
 import {DeveloperDropZone} from './DeveloperDropZone';
 import socketIOClient from "socket.io-client";
 
@@ -106,25 +106,12 @@ function mapStateToProps(state) {
     };
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        assign: (user, task) => {
-            dispatch(userActions.assign(user, task))
-        },
-        getAll: () => {
-            dispatch(userActions.getAll());
-            dispatch(taskActions.getAll());
-        },
-        deleteTask: (task) => {
-            dispatch(taskActions.delete(task._id));
-        },
-        taskStartedDragging: (task) => {
-            dispatch(taskActions.taskStartedDragging(task));
-        },
-        createTask: (task) => {
-            dispatch(taskActions.createTask(task));
-        }    
-    }
+const mapDispatchToProps = {
+    assign: userActions.assign,
+    deleteTask: taskActions.delete,
+    taskStartedDragging: taskActions.taskStartedDragging,
+    createTask: taskActions.createTask,
+    getAll: all.getAll
 }
 
 const connectedAdminPage = connect(mapStateToProps, mapDispatchToProps)(AdminPage);
