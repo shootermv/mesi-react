@@ -38,9 +38,9 @@ class AdminPage extends React.Component {
         this.props.assign(user, this.props.draggedTask);
     }
 
-    deleteTask(task, e) {
+    deleteTask({_id: id}, e) {
         e && e.preventDefault();
-        this.props.deleteTask(task);
+        this.props.deleteTask(id);
     }
 
     componentDidMount() {
@@ -76,7 +76,7 @@ class AdminPage extends React.Component {
                         {tasks.items.map((task, index) =>
                             <li key={task.id} draggable="true" onDragStart={ev => this.dragStartHandler(task, ev)}>
                                 <span className="glyphicon glyphicon-th-list"></span> {task.summary} 
-                                <a href onClick={e => this.deleteTask(task, e)}><span className="glyphicon glyphicon-remove"></span></a>
+                                <a href="#top" onClick={e => this.deleteTask(task, e)}><span className="glyphicon glyphicon-remove"></span></a>
                             </li>
                         )}
                     </ul>: !tasks.loading && tasks.items && tasks.items.length===0 && 'No tasks yet'
