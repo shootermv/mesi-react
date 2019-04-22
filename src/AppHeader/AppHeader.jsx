@@ -3,6 +3,9 @@ import React from 'react';
 export class AppHeader extends React.Component {
 
     render() {
+        function getClassName(url) {
+           return (new RegExp(url, 'g')).test(window.location.href) ? 'active' : '';
+        }
         return (<nav className="navbar navbar-inverse navbar-fixed-top">
             <div className="container">
                 <div className="navbar-header">
@@ -16,14 +19,14 @@ export class AppHeader extends React.Component {
                 </div>
                 <div id="navbar" className="navbar-collapse collapse">
                     <ul className="nav navbar-nav">
-                        <li className="active"><a href="#/admin">Admin</a></li>
-                        <li><a href="#/private">Private</a></li>
-                        <li><a href="#/login">Login</a></li>
-                        <li><a href="#/register">Register</a></li>                                                    
+                        {localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).role==='admin' && <li className={getClassName("admin")}><a href="#/admin">Admin</a></li>}
+                        {localStorage.getItem('user')  && <li className={getClassName("private")}><a href="#/private">Private</a></li>}
+                        {!localStorage.getItem('user') && <li className={getClassName("login")}><a href="#/login">Login</a></li>}
+                        <li className={getClassName("register")}><a href="#/register">Register</a></li>                                                    
                     </ul>
                     <ul className="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#/login">Logout</a>
+                            {localStorage.getItem('user') && <a href="#/login">Logout</a>}
                         </li>                   
                     </ul>
                 </div>
