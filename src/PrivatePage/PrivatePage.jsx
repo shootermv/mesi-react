@@ -17,7 +17,7 @@ class PrivatePage extends React.Component {
           
           const { endpoint } = this.state;
           const socket = socketIOClient(endpoint);
-          socket.on("task-assigned", () => {   console.log('happend!')     
+          socket.on("task-assigned", () => {     
               this.props.dispatch(userActions.getById(this.props.user._id));
           });        
     }
