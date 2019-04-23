@@ -11,6 +11,9 @@ import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import { PrivatePage } from '../PrivatePage';
 
+import { AppHeader } from '../AppHeader';
+
+
 export class App extends React.Component {
     constructor(props) {
         super(props);
@@ -27,6 +30,9 @@ export class App extends React.Component {
         const { alert } = this.props;
         return (
             <div className="jumbotron">
+
+                <AppHeader/>
+
                 <div className="container">
                     <div className="col-sm-8 col-sm-offset-2">
                         {alert.message &&
