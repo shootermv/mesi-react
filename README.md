@@ -1,6 +1,6 @@
 # Client for MESI project  
 
-[demo](https://shootermv.github.io/react-redux-registration-login-example)
+[demo](https://shootermv.github.io/mesi-react)
 
 
 ## Rewrited With React & Redux
