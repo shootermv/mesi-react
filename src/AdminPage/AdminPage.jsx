@@ -4,6 +4,8 @@ import { userActions, taskActions, allActions as all } from '../_actions';
 import { DeveloperDropZone } from './DeveloperDropZone';
 import socketIOClient from "socket.io-client";
 
+const endpoint = `${process.env.REACT_APP_API_URL}`;
+
 class AdminPage extends React.Component {
     constructor(props) {
         super(props);
@@ -11,61 +13,56 @@ class AdminPage extends React.Component {
         this.state = {
             summary: '',
             response: false,
-            endpoint: `${process.env.REACT_APP_API_URL}`
+            endpoint
         }
 
-        const { endpoint } = this.state;
         const socket = socketIOClient(endpoint);
         socket.on("status-change", () => {
             this.props.getAll();
         });
-
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleAssignTaskToUser = this.handleAssignTaskToUser.bind(this);
-        this.dragStartHandler = this.dragStartHandler.bind(this);
-        this.deleteTask = this.deleteTask.bind(this);
-        this.save = this.save.bind(this);
     }
 
-    handleInputChange(event) {
+    handleInputChange = ({target:{name, value}}) => {
         this.setState({
-            [event.target.name]: event.target.value
+            [name]: value
         });
     }
 
-    handleAssignTaskToUser(user, e) {
+    handleAssignTaskToUser = (user, e) => {
         e && e.preventDefault();
         this.props.assign(user, this.props.draggedTask);
     }
 
-    deleteTask({ _id: id }, e) {
+    deleteTask = ({ _id: id }, e) => {
         e && e.preventDefault();
         this.props.deleteTask(id);
     }
 
-    componentDidMount() {
-        this.props.getAll();
-    }
-
-    dragStartHandler(task, ev) {
+    dragStartHandler = (task, ev) => {
         this.props.taskStartedDragging(task);//.dispatch(taskActions.taskStartedDragging(task));
         ev.dataTransfer.setData("text", ev.target.id);
     }
 
-    save(e) {
+    save = (e) => {
         e.preventDefault();
         this.state.summary && this.props.createTask(this.state.summary);
         this.setState({ summary: '' });
     }
 
+    /* life hooks */
+    componentDidMount() {
+        this.props.getAll();
+    }
+
     render() {
         const { admin, users, tasks } = this.props;
+        const { summary } = this.state;
         return (<div>
             <h1>Hi {admin.firstName}!</h1>
             <form>
-                <input name="summary" value={this.state.summary} placeholder="what is the task"
+                <input name="summary" value={summary} placeholder="what is the task"
                     onChange={this.handleInputChange} />
-                <button onClick={e => this.save(e)}>Save</button>
+                <button onClick={this.save}>Save</button>
             </form>
             <hr />
             <h3>Unassigned tasks:</h3>
