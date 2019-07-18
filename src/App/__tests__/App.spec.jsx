@@ -1,10 +1,8 @@
 // test file
 
 import React from 'react';
-import Enzyme from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import {shallow} from 'enzyme'
 
-Enzyme.configure({ adapter: new Adapter() });
 
 import {App} from '../App'
 
@@ -14,6 +12,6 @@ test('Should render AdminPage component', () => {
         messsage: '',
         type: ''
     }
-    const wrapper = Enzyme.shallow(<App alert={alert}/>);
+    const wrapper = shallow(<App alert={alert}/>);
     expect(wrapper).toMatchSnapshot();
 });
