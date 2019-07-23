@@ -2,18 +2,13 @@ import React from 'react';
 
 
 class DeveloperDropZone extends React.Component {
-    constructor(props){
-        super(props);
-        this.onDragOver = this.onDragOver.bind(this);
-        this.onDragEnter = this.onDragEnter.bind(this);
-    }
-    
-    onDragOver (e)  {	
+
+    onDragOver = (e) => {	
         e.stopPropagation();	
         e.preventDefault();	
     }	
 
-    onDragEnter (e)  {	
+    onDragEnter = (e) => {	
         e.stopPropagation();	
     }	
 
@@ -26,7 +21,7 @@ class DeveloperDropZone extends React.Component {
             onDrop={e => assignTaskToUser(user, e)}>
                <div>{user.firstName + ' ' + user.lastName}</div>
                <div className='well'>
-               {user.tasks && user.tasks.length>0 ? user.tasks.map(({_id, summary, status}) => <li key={_id} draggable="true">{summary} {status}</li>):'no tasks yet'}
+               {user.tasks && user.tasks.length ? user.tasks.map(({_id, summary, status}) => <li key={_id} draggable="true">{summary} {status}</li>):'no tasks yet'}
                </div>
             </div>
         );

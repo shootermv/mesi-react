@@ -9,7 +9,7 @@ afterEach(() => {
 });
 
 test('Login page should  have title "Login"', () => {
-  // Render a checkbox with label in the document
+ 
   const login = shallow(<NotConnLoginPage  dispatch={mockDispatch}/>);
 
   expect(login.find('h2').text()).toContain('Login');
@@ -17,7 +17,7 @@ test('Login page should  have title "Login"', () => {
 });
 
 test('When submitting with empty inputs - should display valiadtion errors"', () => {
-  // Render a checkbox with label in the document
+
   const login = shallow(<NotConnLoginPage  dispatch={mockDispatch}/>);
   login.find('form').simulate(
     'submit', 
@@ -28,7 +28,7 @@ test('When submitting with empty inputs - should display valiadtion errors"', ()
 });
 
 test('When submitting with some credentialls - should call "dispatch"', () => {
-  // Render a checkbox with label in the document
+ 
   const login = shallow(<NotConnLoginPage  dispatch={mockDispatch}/>);
   expect(mockDispatch).toHaveBeenCalledWith({"type": "USERS_LOGOUT"});
   expect(typeof mockDispatch.mock.calls[0][0]).toBe('object');
