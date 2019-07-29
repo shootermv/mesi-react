@@ -112,4 +112,4 @@ const mapDispatchToProps = {
 }
 
 const connectedAdminPage = connect(mapStateToProps, mapDispatchToProps)(AdminPage);
-export { connectedAdminPage as AdminPage };
+export { AdminPage as NotConnAdminPage, connectedAdminPage as AdminPage };

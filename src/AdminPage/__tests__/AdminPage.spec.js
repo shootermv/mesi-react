@@ -1,19 +1,23 @@
 // test file
-import { shallow, mount, render } from 'enzyme';
 import React from 'react';
-import {AdminPage}  from '../AdminPage';
+import {shallow} from 'enzyme';
+import {NotConnAdminPage as AdminPage} from '../AdminPage';
 
+const mockDispatch = jest.fn();
 
-/*test('Should render AdminPage component', () => {
-    const testUser = {
-        firstName: '',
-        lastName: '',
-        tasks: []
-    }
-    const wrapper = shallow(<AdminPage user={testUser} />);
-    expect(wrapper).toMatchSnapshot();
-});*/
+afterEach(() => {
+  mockDispatch.mockClear();
+});
 
-test('adds 1 + 2 to equal 3', () => {
-    expect(1 + 2).toBe(3);
+test('Admin page should have title that says "Hi"', () => {
+  const data = {
+      admin: {firstName:'sasha'},
+      tasks: {loading: true},
+      users: {loading: true},
+      getAll: () => {}
+  };
+  const admin = shallow(<AdminPage  dispatch={mockDispatch} {...data}/>);
+
+  expect(admin.find('h1').text()).toContain('Hi sasha!');
+
 });
