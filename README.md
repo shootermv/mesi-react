@@ -9,7 +9,7 @@ Mesi project is sort of project management tool (kind of my implementation of ka
 
 ## Server
 Server is built with Nodejs Express framework + MongoDB  
-[link](https://github.com/shootermv/node-mongo-registration-login-api) to Server part of the project
+[link](https://github.com/shootermv/mesi-backend) to Server part of the project
 
 Based On: [React + Redux - User Registration and Login Tutorial & Example](http://jasonwatmore.com/post/2017/09/16/react-redux-user-registration-and-login-tutorial-example)
 
