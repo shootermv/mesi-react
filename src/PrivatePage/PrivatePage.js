@@ -47,7 +47,7 @@ class PrivatePage extends React.Component {
         <h3>Tasks for you:</h3>
         {user.tasks && user.tasks.length ? (
           <ul>
-            {user.tasks.map((task, index) => (
+            {user.tasks.map((task) => (
               <li key={task._id}>
                 {task.summary}{" "}
                 <a href="/#" onClick={this.changeStatus(user, task)}>
@@ -94,4 +94,4 @@ const connectedPrivatePage = connect(
   mapDispatchToProps
 )(PrivatePage);
 
-export { connectedPrivatePage as PrivatePage };
+export { PrivatePage as NotConnPrivatePage, connectedPrivatePage as PrivatePage };
