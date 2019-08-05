@@ -35,6 +35,11 @@ Programmers can notify their progress by changing the status of the task (by cli
 
 ### Setup Develop Environment
 * (You should have node and Mongodb nistalled and running)
+* clone and run backend part in different terminal
+* create ".env.local" file with following key:
+    ```
+    REACT_APP_API_URL=http://localhost:4000
+    ```
 * clone project `git clone https://github.com/shootermv/mesi-react.git`
 * run `npm i` to install dependencies
 * run  `npm start`
