@@ -19,14 +19,14 @@ function getById(id) {
     return dispatch => {
         dispatch(request({id}));
 
-        userService.getById(id)
+        return userService.getById(id)
             .then(
                 user => { 
                     dispatch(success(user));                   
                 },
                 error => {
                     dispatch(failure(error.toString()));
-                    dispatch(alertActions.error(error.toString()));
+                    dispatch(alertActions.error(error.toString()));               
                 }
             );        
     };
