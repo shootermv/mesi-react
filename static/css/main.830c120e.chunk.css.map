@@ -1,0 +1,1 @@
+{"version":3,"sources":["/home/travis/build/shootermv/mesi-react/src/LoginPage/LoginPage.module.css","main.830c120e.chunk.css"],"names":[],"mappings":"AAAA,6BACI,UAAA,CACA,iBCCJ","file":"main.830c120e.chunk.css","sourcesContent":[".titleColor {\n    color: grey;\n    text-align: center;\n}",".LoginPage_titleColor__1Hgd4 {\n    color: grey;\n    text-align: center;\n}\n"]}
