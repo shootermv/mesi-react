@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "http://shootermv.github.io/mesi-react",
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "history": "^4.7.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
